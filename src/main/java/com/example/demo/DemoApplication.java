@@ -1,13 +1,9 @@
 package com.example.demo;
 
-import com.example.demo.model.DadosSerie;
-import com.example.demo.service.ConsumoApi;
-import com.example.demo.service.ConverteDados;
+import com.example.demo.principal.Principal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.Scanner;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
@@ -18,19 +14,8 @@ public class DemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		ConsumoApi consumoApi = new ConsumoApi();
+		Principal principal = new Principal();
+		principal.exibeMenu();
 
-		//Scanner leitura = new Scanner(System.in);
-		//System.out.println("Digite o nome de uma titulo");
-		//String filme = leitura.nextLine();
-
-		String url = "httpS://www.omdbapi.com/?t=gilmore+Girls&apikey=8b2db37c";
-
-		String json = consumoApi.obterDados(url);
-
-		ConverteDados conversor = new ConverteDados();
-
-		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
-		System.out.println(dados);
 	}
 }

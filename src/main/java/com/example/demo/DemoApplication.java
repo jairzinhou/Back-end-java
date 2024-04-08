@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.principal.Principal;
+import com.example.demo.main.Main;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +13,8 @@ public class DemoApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
-		Principal principal = new Principal();
-		principal.exibeMenu();
-
+	public void run(String... args){
+		Main main = new Main();
+		main.executarCodigo();
 	}
 }
